@@ -9,7 +9,6 @@ def add_time(start_time, duration_time):
 	dur1, dur2 = int(dur1), int(dur2)
 	sta1, sta2 = int(sta1), int(sta2)
 
-	#PAY CLOSE ATTENTION TO THE SPACING AND PUNCTUATION OF THE RESULTS
 	if sta1 > 12 or sta1 < 1: #valid times
 		print('Error')
 	elif sta2 >= 60 or sta2 < 0: #valid times
@@ -21,15 +20,29 @@ def add_time(start_time, duration_time):
 		new2 = sta2 + dur2 #adding minutes
 
 		#I determine whether it should be AM or PM
-		symbols = ['AM', 'PM'] #this is good
+		if time_symbol == 'AM': #this is good
+			symbols = ['AM', 'PM'] #this is good
+		elif time_symbol == 'PM': #this is good
+			symbols = ['PM', 'AM'] #this is good
 		how_many_days = int(new1 / 12) #this is good
+		how_many_min = int(new2 / 60) #this is good
 		for i in range(how_many_days + 1): #this is good
 			if i % 2 == 0:
 				x = 0
 			else:
 				x = 1
 
+		#PAY CLOSE ATTENTION TO THE SPACING AND PUNCTUATION OF THE RESULTS
+		#The magic part
 		if new1 > 12:
-			print(str(new1) + ':' + str(new2) + symbols[x])
+			if new2 >= 60:
+				return str(new1 - 12 * how_many_days) + ':' + str(new2 - 60 * how_many_min) + symbols[x]
+			else: #if new minutes < 60
+				return str(new1 - 12 * how_many_days) + ':' + str(new2) + symbols[x]
+		else: #if new hours < 12
+			if new2 >= 60:
+				return str(new1) + ':' + str(new2 - 60 * how_many_min) + symbols[x]
+			else: #if new minutes < 60
+				return str(new1) + ':' + str(new2) + symbols[x]
 
-	return 1#new_time
+	#return new_time
