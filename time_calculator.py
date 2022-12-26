@@ -10,14 +10,20 @@ def add_time(start_time, duration_time):
 	sta1, sta2 = int(sta1), int(sta2)
 
 	#PAY CLOSE ATTENTION TO THE SPACING AND PUNCTUATION OF THE RESULTS
-	if sta1 > 12 or sta1 < 1:
+	if sta1 > 12 or sta1 < 1: #valid times
 		print("Error")
-	elif sta2 >=60 or sta2 < 0:
+	elif sta2 >= 60 or sta2 < 0: #valid times
 		print("Error")
-	elif dur2 >=60 or dur2 < 0:
+	elif dur2 >= 60 or dur2 < 0: #valid times
 		print("Error")
-	else:
-		print("hi")
+	else: #if everything went okay
+		new1 = sta1 + dur1 #adding hours
+		new2 = sta2 + dur2 #adding minutes
+
+		symbols = ["AM", "PM"]
+		how_many_days = 0
+
+		if new1 > 12:
 
 
 	return 1#new_time
