@@ -41,13 +41,13 @@ def add_time(start_time, duration_time):
 			something.append('(' + str(i) + ' days later)')
 		if new1 > 12:
 			if new2 >= 60:
-				return str(new1 - 12 * how_many_days) + ':' + str(new2 - 60 * how_many_min) + symbols[x] + ' ' + something[days_count]
+				return str(new1 - 12 * how_many_days) + ':' + str(new2 - 60 * how_many_min) + ' ' + symbols[x] + ' ' + something[days_count]
 			else: #if new minutes < 60
-				return str(new1 - 12 * how_many_days) + ':' + str(new2) + symbols[x] + ' ' + something[days_count]
+				return str(new1 - 12 * how_many_days) + ':' + str(new2) + ' '  + symbols[x] + ' ' + something[days_count]
 		else: #if new hours < 12
 			if new2 >= 60:
-				return str(new1) + ':' + str(new2 - 60 * how_many_min) + symbols[x] + ' ' + something[days_count]
+				return str(new1) + ':' + str(new2 - 60 * how_many_min) + ' '  + symbols[x] + ' ' + something[days_count]
 			else: #if new minutes < 60
-				return str(new1) + ':' + str(new2) + symbols[x] + ' ' + something[days_count]
+				return str(new1) + ':' + str(new2) + ' '  + symbols[x] + ' ' + something[days_count]
 
 	#return new_time
