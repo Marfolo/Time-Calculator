@@ -26,7 +26,9 @@ def add_time(start_time, duration_time):
 			symbols = ['PM', 'AM'] #this is good
 		how_many_days = int(new1 / 12) #this is good
 		how_many_min = int(new2 / 60) #this is good
+		days_count = 0 #to count the days
 		for i in range(how_many_days + 1): #this is good
+			days_count++
 			if i % 2 == 0:
 				x = 0
 			else:
