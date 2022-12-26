@@ -24,9 +24,11 @@ def add_time(start_time, duration_time):
 			symbols = ['AM', 'PM'] #this is good
 		elif time_symbol == 'PM': #this is good
 			symbols = ['PM', 'AM'] #this is good
+
 		how_many_days = int(new1 / 12) #this is good
 		how_many_min = int(new2 / 60) #this is good
 		days_count = -1 #to count the days
+
 		for i in range(how_many_days + 1): #this is good
 			days_count = days_count + 1
 			if i % 2 == 0:
@@ -41,12 +43,12 @@ def add_time(start_time, duration_time):
 			something.append('(' + str(i) + ' days later)')
 		if new1 > 12:
 			if new2 >= 60:
-				return str(new1 - 12 * how_many_days) + ':' + str(new2 - 60 * how_many_min) + ' ' + symbols[x] + ' ' + something[days_count]
+				return str(new1 - 12 * how_many_days + how_many_min) + ':' + str(new2 - 60 * how_many_min) + ' ' + symbols[x] + ' ' + something[days_count]
 			else: #if new minutes < 60
 				return str(new1 - 12 * how_many_days) + ':' + str(new2) + ' '  + symbols[x] + ' ' + something[days_count]
 		else: #if new hours < 12
 			if new2 >= 60:
-				return str(new1) + ':' + str(new2 - 60 * how_many_min) + ' '  + symbols[x] + ' ' + something[days_count]
+				return str(new1 + how_many_min) + ':' + str(new2 - 60 * how_many_min) + ' '  + symbols[x] + ' ' + something[days_count]
 			else: #if new minutes < 60
 				return str(new1) + ':' + str(new2) + ' '  + symbols[x] + ' ' + something[days_count]
 
